@@ -1,0 +1,357 @@
+// bower:scss
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+// fonts 
+@font-face {
+  font-family: 'Century Schoolbook';
+  src: url('/fonts/century_schoolbook'); /* IE9 Compat Modes */
+  }
+@font-face {
+  font-family: 'Amatic-Bold';
+  src: url('/fonts/Amatic-Bold.ttf'); /* IE9 Compat Modes */
+  }
+
+@font-face {
+  font-family: 'AmaticSC-regular';
+  src: url('/fonts/AmaticSC-Regular.ttf'); /* IE9 Compat Modes */
+  }
+
+// font-families 
+
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+$copy-font: Cambria, Georgia, serif;
+$header1-font:Georgia, Garamond, serif;
+$header2-font:'AmaticSC-Regular'; 
+
+// colours 
+
+// $highlight: #fce80b;
+$headerbg: #b5b2a1;
+$highlight: rgba(255,2,137,1);
+$dark-highlight: rgba(130,1,137,1);
+
+// sizes
+
+$spacing-unit: 1.5rem;
+$font-size-regular: 62.5%;
+
+@mixin header($header-font, $fontSize) {
+    font-family: $header-font;
+    font-size:$fontSize;
+}
+
+
+// element helpers
+
+.op {
+    opacity:0.2;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+//.invisible {
+//    display:none;
+//}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+
+html {
+    font-size:$font-size-regular;
+}
+
+body {
+    font-family: $copy-font;
+    background-color: white;
+    background:url('/images/gfx_george_background.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size:30%;
+    font-size:1.6rem;
+}
+
+.cauldron {
+    position:fixed;
+    z-index:10;
+    top:0;
+    width:100%;
+    height:50px;
+    padding:1rem $spacing-unit;
+    background-color: black;
+    color:white;
+    text-align:right;
+    
+}
+
+ul {
+    list-style-type: none; 
+
+}
+
+ul.current-cart {
+    display:none;
+    position:absolute;
+    right:0px;
+    background-color:black;
+    width:25%;
+    padding:$spacing-unit / 2 0;
+    & li {
+        padding:$spacing-unit / 2 $spacing-unit;
+    }
+    & li:hover {
+        background-color:$highlight;
+    }
+    & li:after {
+        content:'';
+        display:inline-block;
+        width:20px;
+        height:20px;
+        background-image: url('/images/gfx_icon_remove_01.png');
+        background-size:contain;
+        position:relative;
+        top:5px;
+        left: 5px;
+        padding:0;
+    }
+}
+
+.trigger:hover ul.current-cart {
+    display:block;
+}
+
+.header {
+    padding-top:$spacing-unit * 4;
+    padding-bottom:$spacing-unit * 6;
+    background: {
+        color: $headerbg;
+        image: url('/images/gfx_pills_01.png');
+        size: contain;
+        position: bottom center;
+    }
+    text-align:center;
+    color:white;
+}
+
+h1 {
+    @include header($header1-font, 6.4rem);
+    text-transform:uppercase;
+}
+
+h2 {
+    @include header($header2-font, 4.8rem);
+    margin-top:0;
+
+}
+
+h3 {
+    @include header($header2-font, 4.8rem);
+    color:black;
+    padding:$spacing-unit 0;
+}
+
+h4 {
+    @include header($header2-font, 3.2rem);
+}
+
+
+h3:after, .products:after {
+    content:'';
+    display:block;
+    width:100%;
+    background:url('/images/gfx_divider_01.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    height:10px;
+    margin-top: $spacing-unit;
+
+}
+
+.product {
+    text-align:center;
+    padding:$spacing-unit * 2 0;
+}
+
+.product img {
+    padding:$spacing-unit 0px;
+    display:inline-block;
+    width:100%;
+    max-height:auto;
+}
+
+
+button, .btn {
+    font-family: $header2-font;
+    padding: $spacing-unit $spacing-unit * 2;
+    outline:0;
+
+}
+
+.cart {
+    background-color:white;
+    border:0;
+    font-size:2.4rem;
+    &:after {
+        content:'';
+        background: url('/images/gfx_icon_add_01.png');
+        width:30px;
+        height:30px;
+        display:inline-block;
+        margin-left:$spacing-unit / 2;
+    }
+    &:hover:after {
+        background: url('/images/gfx_icon_add_02.png');
+    }
+}
+
+.legend {
+    position: absolute;
+    top:50%;
+    width:100%;
+    font-size:18px;
+    border:1px solid green;
+}
+
+#results {
+    padding: $spacing-unit * 2 0;
+    min-height:400px;
+    text-align:center;
+}
+
+.results-message, .error {
+    padding:$spacing-unit * 2;
+    margin-top:$spacing-unit;
+}
+
+.results-message {
+    text-align:left;
+    width:60%;
+}
+
+.error {
+    border:2px solid red;
+    font-size:2.0rem;
+}
+
+
+
+.calc-score {
+    font-size:3.6rem;
+    color:white;
+    background: linear-gradient(to bottom, rgba(255,2,137,1) 0%,rgba(175,0,140,1) 49%,rgba(130,1,137,1) 100%); /* W3C */
+    border:1px solid $dark-highlight;
+    // transition:1s;
+    &:hover, &:active, &:focus {
+        background: linear-gradient(to bottom, rgba(255,2,137,1) 0%,rgba(175,0,140,1) 0%,rgba(130,1,137,1) 100%);
+        color:white;
+        outline:$dark-highlight;
+        box-shadow: 0px 5px 20px 0px rgba(255, 2, 137, 1);
+    }
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: $spacing-unit;
+    padding-right: $spacing-unit;
+}
+
+/* Custom page header */
+.header {
+    
+    
+
+    /* Make the masthead heading the same height as the navigation */
+    h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 4.0rem;
+        padding-bottom: 19px;
+    }
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+    }
+}
+
+/* Supporting marketing content */
+
+/* Responsive: Portrait tablets and up */
+@media screen and (max-width:767px) {
+    .product img {
+        width:80%;
+    }
+
+    .products:after {
+        display:none;
+    }
+
+    .product:after {
+    content:'';
+    display:block;
+    width:100%;
+    background:url('/images/gfx_divider_01.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    height:10px;
+    margin-top: $spacing-unit;
+
+    }
+
+    h1 {
+        font-size:2.5em;
+    }
+
+    .results-message {
+        width:100%;
+    }
+    p {
+        padding: $spacing-unit;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
