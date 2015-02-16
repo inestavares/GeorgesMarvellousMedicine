@@ -5,16 +5,16 @@
 // fonts 
 @font-face {
   font-family: 'Century Schoolbook';
-  src: url('/fonts/century_schoolbook'); /* IE9 Compat Modes */
+  src: url('../fonts/century_schoolbook'); /* IE9 Compat Modes */
   }
 @font-face {
   font-family: 'Amatic-Bold';
-  src: url('/fonts/Amatic-Bold.ttf'); /* IE9 Compat Modes */
+  src: url('../fonts/Amatic-Bold.ttf'); /* IE9 Compat Modes */
   }
 
 @font-face {
   font-family: 'AmaticSC-regular';
-  src: url('/fonts/AmaticSC-Regular.ttf'); /* IE9 Compat Modes */
+  src: url('../fonts/AmaticSC-Regular.ttf'); /* IE9 Compat Modes */
   }
 
 // font-families 
@@ -314,7 +314,7 @@ button, .btn {
     content:'';
     display:block;
     width:100%;
-    background:url('/../images/gfx_divider_01.png');
+    background:url('../images/gfx_divider_01.png');
     background-repeat: no-repeat;
     background-size:cover;
     height:10px;
