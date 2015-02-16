@@ -69,7 +69,13 @@ function Product(el, ethic) {
     el.find('button').text('Add to Cauldron');
     el.on('click.cart', '.cart', this.addToCart);
   };
+  this.showLegend = function() {
+    console.log('yay');
+    el.find('img').toggleClass('op');
+    el.find('.legend').toggleClass('hide');
+  }
   this.el.on('click.cart', '.cart', this.addToCart);
+  this.el.on('click.showLegend', this.showLegend)
 }
 
 var productArray = [ 

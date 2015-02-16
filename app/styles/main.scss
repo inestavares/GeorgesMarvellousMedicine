@@ -184,6 +184,9 @@ h3:after, .products:after {
     display:inline-block;
     width:100%;
     max-height:auto;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
 }
 
 
@@ -213,10 +216,13 @@ button, .btn {
 
 .legend {
     position: absolute;
-    top:50%;
+    top:25%;
     width:100%;
     font-size:18px;
-    border:1px solid green;
+    padding: $spacing-unit;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
 }
 
 #results {
