@@ -11,7 +11,7 @@ gulp.task('styles', function () {
       style: 'expanded',
       precision: 10
     }))
-    .pipe($.autoprefixer({browsers: ['last 1 version']}))
+    // .pipe($.autoprefixer({browsers: ['last 1 version']}))
     .pipe(gulp.dest('.tmp/styles'));
 });
 
@@ -41,10 +41,10 @@ gulp.task('html', ['styles'], function () {
 
 gulp.task('images', function () {
   return gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin({
-      progressive: true,
-      interlaced: true
-    })))
+    //.pipe($.cache($.imagemin({
+      //progressive: true,
+      //interlaced: true
+    //})))
     .pipe(gulp.dest('dist/images'));
 });
 
@@ -65,7 +65,7 @@ gulp.task('extras', function () {
   }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
+gulp.task('clean', require('del').bind(  null, ['.tmp', 'dist'] ));
 
 gulp.task('connect', ['styles'], function () {
   var serveStatic = require('serve-static');
